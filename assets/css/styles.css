@@ -6,23 +6,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Montserrat', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Segoe UI';
     font-weight: 700;
 }
 
 p {
     margin-bottom: 15px;
     line-height: 1.5;
+    font-family: "Segoe UI", sans-serif;
 }
 
 a {
     color: #00bcd4;
+    font-family: "Segoe UI";
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -ms-transition: all 0.4s ease-in-out;
@@ -166,6 +163,10 @@ textarea {
     color: #51597e;
 }
 
+.li-indent {
+    margin-left: 2em;
+}
+
 #topcontrol {
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
@@ -281,13 +282,10 @@ textarea {
 
 .time-bg-gradient {
     background-color: #151721;
-    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#51597e), to(#151721));
     background-image: -webkit-radial-gradient(circle, #404040, #303030);
     background-image: -moz-radial-gradient(circle, #51597e, #151721);
     background-image: -o-radial-gradient(circle, #51597e, #151721);
     background-image: -ms-radial-gradient(circle, #51597e, #151721);
-    /*background: url(http://www.csmcw-csmt.cn/img/background.jpg);*/
-    /*background-size: 130%;*/
     background-repeat: no-repeat;
     color: #fff;
 }
@@ -307,7 +305,7 @@ textarea {
     font-size: 32px;
     position: relative;
     padding-bottom: 5px;
-    font-family: 等线;
+    font-family: 'Segoe UI';
 }
 
 .page-title {
@@ -349,21 +347,21 @@ textarea {
     color: #36435A;
 }
 
-.header-scrolled h1.logo a {
-    background: transparent url('../images/logo-2.svg') no-repeat left top;
-}
+/*.header-scrolled h1.logo a {*/
+/*    background: transparent url('../images/logo-2.svg') no-repeat left top;*/
+/*}*/
 
 h1.logo {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-h1.logo a {
-    background: transparent url('../images/logo.svg') no-repeat left top;
-    display: inline-block;
-    height: 18px;
-    width: 130px;
-}
+/*h1.logo a {*/
+/*    background: transparent url('../images/logo.svg') no-repeat left top;*/
+/*    display: inline-block;*/
+/*    height: 18px;*/
+/*    width: 130px;*/
+/*}*/
 
 /* ====== Nav ======= */
 .navbar-toggle {
@@ -840,7 +838,6 @@ h1.logo a {
 }
 
 
-
 /* ======= Updates Section ======= */
 .updates-section .item {
     /*max-width: 760px;*/
@@ -848,14 +845,14 @@ h1.logo a {
     margin: 0 auto;
     margin-bottom: 45px;
     /*margin-bottom: 5px;*/
-    font-family: "等线";
+    font-family: "Segoe UI";
 }
 
 .updates-section .item-title {
     margin-top: 0;
     margin-bottom: 15px;
     text-align: left;
-    font-family: "等线";
+    font-family: "Segoe UI";
 }
 
 .updates-section .item-meta {
@@ -865,7 +862,7 @@ h1.logo a {
 
 .updates-section .item-content {
     color: #586A8F;
-    text-align: left;
+    /*text-align: left;*/
     font-size: large;
     text-align: justify;
 }
@@ -884,7 +881,7 @@ h1.logo a {
     margin-bottom: 45px;
     padding-left: 60px;
     /*margin-bottom: 5px;*/
-    font-family: 等线;
+    font-family: Segoe UI;
 }
 
 .yinji-section .item-title {
@@ -909,6 +906,7 @@ h1.logo a {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
 /* ======= Tables Section ======= */
 
 .yinji-section .table {
@@ -1320,10 +1318,9 @@ And, since we've applied the background colors to td/th element because of IE, G
         padding-top: 5px;
     }
 
-    .header h1.logo a {
-        background: transparent url('../images/logo-2.svg') no-repeat left top;
-    }
-
+    /*.header h1.logo a {*/
+    /*    background: transparent url('../images/logo-2.svg') no-repeat left top;*/
+    /*}*/
     .navbar-collapse {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -1401,7 +1398,7 @@ And, since we've applied the background colors to td/th element because of IE, G
 
     .navbar-nav {
         float: none;
-        font-family: "MingLiU";
+        font-family: "Segoe UI";
     }
 }
 
@@ -1617,17 +1614,28 @@ body {
 
 .body-footnote {
     text-align: left;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI", sans-serif;
 }
 
-.generator {
+:is(div, p) > .generator {
     color: #337ab7;
 }
 
-.judge {
+:is(div, p) > .judge {
     color: #26a99d;
 }
 
-.generator, .judge {
+:is(div, p) > :is(.generator, .judge) {
     font-weight: 700;
+}
+
+math {
+    font-family: "Times New Roman";
+}
+
+.card {
+    padding: 2rem;
+    margin: 1rem -.75rem 0;
+    border: solid #dee2e6;
+    border-width: 1px;
 }
