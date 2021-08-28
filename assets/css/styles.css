@@ -1600,3 +1600,34 @@ body {
 .timeline-footnote {
     color: #ccc;
 }
+
+.nav-faq {
+    margin-right: 10px;
+}
+
+.footnote-index {
+    padding: 2px 4px;
+    margin: 2px;
+    font-weight: 700;
+    color: #777;
+    /*text-decoration: underline;*/
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.body-footnote {
+    text-align: left;
+    font-family: "Segoe UI";
+}
+
+.generator {
+    color: #337ab7;
+}
+
+.judge {
+    color: #26a99d;
+}
+
+.generator, .judge {
+    font-weight: 700;
+}

@@ -50,9 +50,9 @@
             <div class="container">
 <!--                                 <div class="navbar-header">
                     <a class="navbar-brand" href="https://csmt-ccic-2021.github.io/CCIC" style="font-family:'Segoe UI';font-size: large;color:#a9a9a9">
-                        <strong>
+                        <b>
                             Computer Composition Identification Challenge 2021
-                        </strong>
+                        </b>
                     </a>
                 </div> -->
                 <nav class="main-nav navbar-left" role="navigation">
@@ -82,18 +82,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="scrollto" href="#prizeandaward" style="font-family:'Segoe UI'">
-                                    Prize & Award
+                                <a class="scrollto" href="#pricing" style="font-family:'Segoe UI'">
+                                    Prizing
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="scrollto" href="#submission" style="font-family:'Segoe UI'">
                                     Submission
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="scrollto" href="#contact" style="font-family:'Segoe UI'">
-                                    FAQ
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -104,6 +99,11 @@
                             <li class="nav-item">
                                 <a class="scrollto" href="#team" style="font-family:'Segoe UI'">
                                     Organisation Committee
+                                </a>
+                            </li>
+                            <li class="nav-item nav-faq">
+                                <a class="scrollto" href="#contact" style="font-family:'Segoe UI'">
+                                    FAQ
                                 </a>
                             </li>
                         </ul>
@@ -147,21 +147,17 @@
                 <div class="item">
                     <div class="item-content" style="font-family:'Segoe UI'">
                         <p>
-                            Computer Composition Identification Challenge, initiated by Conference on Sound and Music Technology (CSMT), is a Challenge succeeding to the CSMT Data Challenge, 2020. This Challenge is dedicated to finding improved music generation models and objective evaluation models for specified music styles.
+                            The Computer Composition Identification Challenge, initiated by the Conference on Sound and Music Technology (CSMT), is succeeding the CSMT Data Challenge, 2020. This new challenge is dedicated to finding improved music generation models and objective evaluation models for a number of specified music styles. 
                         </p>
                         <p>
-                            There will be two roles competing against each other in this Challenge:
-                            <strong>
-                                generator models
-                            </strong>
-                            and
-                            <strong>
-                                judge models.
-                            </strong>
-                            Participants could take either role or both roles.
+                            There will be <b>two</b> roles competing against each other in this challenge: <b>Generator</b> versus <b>Judge</b>. Participants must choose one role and complete the corresponding tasks. 
                         </p>
                         <p>
-                            Generators are supposed to develop a system that can automatically generate a playable violin phrase with given beginning and ending bars, tempo value, key signature, and time signature. Judges are supposed to analyse given music phrases and produce a Human Composition Score (<code>HCS</code>) -- the probability of the input being composed by real human composers.
+                            <b>Generators</b> are supposed to develop a system<sup><a id="footnote1-index" class="footnote-index scrollto" href="#footnote1">1</a></sup> that can automatically generate a playable violin phrase with given beginning and ending bars, tempo value, key signature, and time signature. 
+                        </p>
+                        <p>
+                            Generators are supposed to develop a system that can automatically generate a playable violin phrase with given beginning and ending bars, tempo value, key signature, and time signature. 
+                            <b>Judges</b> are supposed to analyse given music phrases and produce a Human Composition Score (<code>HCS</code>) -- the probability of the input being composed by real human composers.
                         </p>
                     </div>
                     <!--//item-content-->
@@ -169,15 +165,21 @@
                         <img alt="" class="img-responsive" src="assets/images/process_en.png">
                         </img>
                     </div>
+                    <div id="footnote1" class="body-footnote">
+                        <p>
+                            <sup class="footnote-index">1</sup>: 
+                            A system can consist of more than one objective model or rule sets.
+                        </p>
+                    </div>
                 </div>
             </div>
             <!--//container-->
         </section>
-        <!--//priceandaward-section-->
-        <section class="updates-section section" id="prizeandaward">
+        <!--//pricing-section-->
+        <section class="updates-section section" id="pricing">
             <div class="container text-center">
                 <h2 class="section-title" style="font-family:'Segoe UI'">
-                    Prize & Award
+                    Prizing
                 </h2>
                 <div class="item" style="font-family:'Segoe UI'">
                     <div class="item-content">
@@ -192,23 +194,23 @@
                         </style>
                         <p class="p1">
                             &bullet;
-                            <strong>
-                                The Best Generator
-                            </strong>
-                            for the participant whose generator system obtains the highest score.
+                            <b>
+                                The Best <span class="generator"> Generator </span>
+                            </b>
+                            for the participant whose <span class="generator">generator</span> system obtains the highest score.
                         </p>
                         <p class="p1">
                             &bullet;
-                            <strong>
-                                The Best Judge
-                            </strong>
-                            for the participant whose judge system obtains the highest score.
+                            <b>
+                                The Best <span class="judge"> Judge </span>
+                            </b>
+                            for the participant whose <span class="judge"> judge </span> system obtains the highest score.
                         </p>
                         <p class="p1">
                             &bullet;
-                            <strong>
+                            <b>
                                 Creativity Award
-                            </strong>
+                            </b>
                             for the participant with the most creative solution, determined by the committee.
                         </p>
                     </div>
@@ -233,27 +235,27 @@
                         </style>
                         <p>
                             <font size="5" style="font-family:'Segoe UI'">
-                                <strong>
+                                <b>
                                     Preliminary Submission
-                                </strong>
+                                </b>
                             </font>
                         </p>
                         <p style="font-family:'Segoe UI'; ">
-                            The preliminary result contains two submission deadlines. The first deadline is for generators to submit 200 music phrases for each composer. The second deadline is set around one week later to judges for submitting the results HCS, which are the feedback for the music phrases generated by generators. Notice that any valid submission record in these two preliminary submissions will be considered as completing the registration for this challenge but the submitted content will not affect the final score.
+                            The preliminary result contains two submission deadlines. The first deadline is for <span class="generator">  generators </span> to submit 200 music phrases for each composer. The second deadline is set around one week later to <span class="judge">  judges  </span> for submitting the results HCS, which are the feedback for the music phrases generated by <span class="generator">  generators </span>. Notice that any valid submission record in these two preliminary submissions will be considered as completing the registration for this challenge but the submitted content will not affect the final score.
                         </p>
                         <p>
                             <font size="5" style="font-family:'Segoe UI'">
-                                <strong>
+                                <b>
                                     Final Submission
-                                </strong>
+                                </b>
                             </font>
                         </p>
                         <p style="font-family: 'Segoe UI';">
                             The last few days before the final submission deadline will be the evaluation stage, when 200 pairs of beginnings and endings will be released for each composer's pieces in the list.
                             <br><br>
-                            In 48 hours, generator systems should complete these music phrases and submit them as their final submission. Then, these phrases will be compiled together and made available to judge systems. From this moment on, in the next 48 hours, judge systems are expected to calculate the <code>HCS</code>s for these phrases and make the final submission. For each composer, a certain number of extra phrases extracted from human-composed pieces will be mixed into the input.
+                            In 48 hours, <span class="generator">  generator </span> systems should complete these music phrases and submit them as their final submission. Then, these phrases will be compiled together and made available to <span class="judge">  judge  </span> systems. From this moment on, in the next 48 hours, <span class="judge">  judge  </span> systems are expected to calculate the <code>HCS</code>s for these phrases and make the final submission. For each composer, a certain number of extra phrases extracted from human-composed pieces will be mixed into the input.
                             <br><br>
-                            Generator scores are measured by are the average <code>HCS</code> from all judges.
+                            <span class="generator">Generator</span> scores are measured by are the average <code>HCS</code> from all <span class="judge">  judges  </span>.
                             <br><br>
                             Judge performances are ranked by the sum of the following two scores:
                             <ol style="font-family: 'Segoe UI';">
@@ -261,7 +263,7 @@
                                     <code>HCS</code> for human composed phrases.
                                 </li>
                                 <li>
-                                    <code>1-HCS</code> for phrases generated by generators.
+                                    <code>1-HCS</code> for phrases generated by <span class="generator">  generators </span>.
                                 </li>
                             </ol>
                             <p style="font-family: 'Segoe UI';">
@@ -272,36 +274,6 @@
                     <!--//item-content-->
                 </div>
                 <!--//item-->
-            </div>
-            <!--//container-->
-        </section>
-        <!--//updates-section-->
-        <section class="updates-section section" id="contact">
-            <div class="container text-center">
-                <h2 class="section-title" style="font-family: 'Segoe UI';">
-                    FAQ
-                </h2>
-                <div class="item">
-                    <div class="item-content">
-                        <p class="faq-content" style="font-family: 'Segoe UI';">
-                            For any enquires, contact us:
-                            <b>
-                                Yuqiang Li
-                            </b>
-                            , challenge coordinator, Xi'an Jiaotong-Liverpool University,
-                            <br>
-                                <div class="fa fa-envelope">
-                                </div>
-                                <a href="mailto:csmt.ccic.2021@gmail.com">
-                                    csmt.ccic.2021@gmail.com
-                                </a>
-                            </br>
-                        </p>
-                    </div>
-                    <!--//item-content-->
-                </div>
-                <!--//item-->
-                <!--            <a class="btn btn-secondary btn-oval" href="#">Load More</a>-->
             </div>
             <!--//container-->
         </section>
@@ -323,9 +295,7 @@
                             </div>
                             <h4 class="title">
                                 Preliminary submission deadline for
-                                <u>
-                                    generators
-                                </u>
+                                <span class="generator">  generators </span>
                             </h4>
                         </div>
                         <!--//timeline-content-->
@@ -342,9 +312,7 @@
                             </div>
                             <h4 class="title">
                                 Preliminary submission deadline for
-                                <u>
-                                    judges
-                                </u>
+                                <span class="judge">  judges  </span>
                             </h4>
                         </div>
                         <!--//timeline-content-->
@@ -377,9 +345,7 @@
                             </div>
                             <h4 class="title">
                                 Final submission deadline for
-                                <u>
-                                    generators
-                                </u>
+                                <span class="generator">  generators </span>
                             </h4>
                         </div>
                         <!--//timeline-content-->
@@ -412,9 +378,7 @@
                             </div>
                             <h4 class="title">
                                 Final submission deadline for
-                                <u>
-                                    judges
-                                </u>
+                                <span class="judge">  judges  </span>
                             </h4>
                         </div>
                         <!--//timeline-content-->
@@ -582,6 +546,35 @@
                     <!--//item-->
                 </div>
                 <!--//row-->
+            </div>
+            <!--//container-->
+        </section>
+        <section class="updates-section section" id="contact">
+            <div class="container text-center">
+                <h2 class="section-title" style="font-family: 'Segoe UI';">
+                    FAQ
+                </h2>
+                <div class="item">
+                    <div class="item-content">
+                        <p class="faq-content" style="font-family: 'Segoe UI';">
+                            For any enquires, contact us:
+                            <b>
+                                Yuqiang Li
+                            </b>
+                            , challenge coordinator, Xi'an Jiaotong-Liverpool University,
+                            <br>
+                                <div class="fa fa-envelope">
+                                </div>
+                                <a href="mailto:csmt.ccic.2021@gmail.com">
+                                    csmt.ccic.2021@gmail.com
+                                </a>
+                            </br>
+                        </p>
+                    </div>
+                    <!--//item-content-->
+                </div>
+                <!--//item-->
+                <!--            <a class="btn btn-secondary btn-oval" href="#">Load More</a>-->
             </div>
             <!--//container-->
         </section>
