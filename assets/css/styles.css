@@ -1639,3 +1639,7 @@ math {
     border: solid #dee2e6;
     border-width: 1px;
 }
+
+.external-link {
+    font-weight: 800 !important;
+}
