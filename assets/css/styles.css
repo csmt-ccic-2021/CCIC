@@ -44,6 +44,7 @@ a.btn {
     -moz-transition: all 0.4s ease-in-out;
     -ms-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
+	font-size: 18px;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     padding: 6px 20px;
