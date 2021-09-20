@@ -298,6 +298,10 @@ textarea {
     padding-bottom: 30px;
 }
 
+.section:nth-of-type(1) {
+    padding-bottom: 0;
+}
+
 .section-title {
     text-transform: uppercase;
     margin-top: 0;
@@ -1643,4 +1647,42 @@ math {
 
 .external-link {
     font-weight: 800 !important;
+}
+
+#news {
+    background: #f7f7f7;
+}
+
+#news h2 {
+    padding-top: 60px;
+    margin-bottom: 15px;
+}
+
+.table-news {
+    width: 100%;
+}
+
+.table-news :is(td,th) {
+    padding: 10px;
+}
+
+.table-news tbody tr {
+    line-height: 20px;
+}
+
+.table-news tbody tr:hover {
+    background-color: #eee;
+}
+
+/*.table-news :is(td,th):nth-col(1) {*/
+/*    text-align: left;*/
+/*}*/
+
+/*.table-news :is(td,th):nth-col(2) {*/
+/*    text-align: right;*/
+/*}*/
+
+
+.news-item {
+    margin-bottom: 15px;
 }
