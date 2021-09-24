@@ -1,598 +1,356 @@
-<!doctype html>
-<html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
-.mac-os-11 { --title-bar-height:28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-.typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li blockquote { margin: 1rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
-@media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  .typora-export #write { break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  .is-mac table { break-inside: avoid; }
-  .typora-export-show-outline .typora-export-sidebar { display: none; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-.MathJax_ref { fill: currentcolor; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-.md-expand mark .md-meta { opacity: 0.3 !important; }
-mark .md-meta { color: rgb(0, 0, 0); }
-@media print {
-  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
-}
-.md-diagram-panel .messageText { stroke: none !important; }
-.md-diagram-panel .start-state { fill: var(--node-fill); }
-.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-fences.md-fences-math { font-size: 1em; }
-.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background: inherit; }
-.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
-@media screen and (max-width: 1024px) {
-  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
-}
-@media screen and (max-width: 800px) {
-  .typora-export-sidebar { display: none; }
-}
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
-.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
-.outline-content strong { font-weight: 400; }
-.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
-.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ""; }
-.outline-h1 > .outline-item { padding-left: 0px; }
-.outline-h2 > .outline-item { padding-left: 1em; }
-.outline-h3 > .outline-item { padding-left: 2em; }
-.outline-h4 > .outline-item { padding-left: 3em; }
-.outline-h5 > .outline-item { padding-left: 4em; }
-.outline-h6 > .outline-item { padding-left: 5em; }
-.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
-.outline-label:hover { text-decoration: underline; }
-.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
-.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
-.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
-.outline-children { display: none; }
-.info-panel-tab-wrapper { display: none; }
-.outline-item-open > .outline-children { display: block; }
-.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
-.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
-.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
-.typora-export-collapse-outline .outline-children { display: none; }
-.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
-.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
-.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
-.md-inline-math-container mjx-container { zoom: 0.95; }
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Call for Participation · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Violin Composer List/Violin Composer List of CCIC 2021.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
 
 
-:root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
-}
+<ul class="summary">
+    
+    
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+    
 
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-}
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
 
-body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
-}
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="CSMT_CCIC_2021_CFP.html">
+            
+                <a href="CSMT_CCIC_2021_CFP.html">
+            
+                    
+                    Call for Participation
+            
+                </a>
+            
 
-#write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
-}
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Violin Composer List/Violin Composer List of CCIC 2021.html">
+            
+                <a href="../Violin Composer List/Violin Composer List of CCIC 2021.html">
+            
+                    
+                    Violin Composer List
+            
+                </a>
+            
 
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
-}
+            
+        </li>
+    
 
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
-}
+    
 
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
-}
+    <li class="divider"></li>
 
-a {
-    color: #4183C4;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
-}
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
-}
-
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
-
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
-
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
-}
-
-li p.first {
-    display: inline-block;
-}
-ul,
-ol {
-    padding-left: 30px;
-}
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
-}
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
-}
-blockquote blockquote {
-    padding-right: 0;
-}
-table {
-    padding: 0;
-    word-break: initial;
-}
-table tr {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
-}
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
-table th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table th:first-child,
-table td:first-child {
-    margin-top: 0;
-}
-table th:last-child,
-table td:last-child {
-    margin-bottom: 0;
-}
-
-.CodeMirror-lines {
-    padding-left: 4px;
-}
-
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
-}
-
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
-}
-
-code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
-}
-
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
-}
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
 
 
-.md-task-list-item > input {
-  margin-left: -1.3em;
-}
+                </nav>
+            
+        
+    </div>
 
-@media print {
-    html {
-        font-size: 13px;
-    }
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
-    pre {
-        word-wrap: break-word;
-    }
-}
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
 
-.md-fences {
-	background-color: #f8f8f8;
-}
-#write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
-}
+<div class="book-header" role="navigation">
+    
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
-}
-
-.md-mathjax-midline {
-    background: #fafafa;
-}
-
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
-}
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
-    color: inherit;
-}
-
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
-}
-
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
-}
-
-.sidebar-tabs {
-    border-bottom: none;
-}
-
-#typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-}
-
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
-}
-
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
-}
-
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
-}
-
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
-}
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
-}
-
-.md-lang {
-    color: #b4654d;
-}
-
-/*.html-for-mac {
-    --item-hover-bg-color: #E6F0FE;
-}*/
-
-#md-notification .btn {
-    border: 0;
-}
-
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
-    opacity: 0.4;
-}
-
-.ty-preferences .window-content {
-    background-color: #fafafa;
-}
-
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
-}
-
-.menu-item-container a.menu-style-btn {
-    background-color: #f5f8fa;
-    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
-}
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Call for Participation</a>
+    </h1>
+</div>
 
 
 
-</style><title>Deadline Extension Notice For CCIC 2021</title>
-</head>
-<body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='deadline-extension-notice-for-ccic-2021'><span>Deadline Extension Notice For CCIC 2021</span></h1><p>&nbsp;</p><p><span>Upon requests from potential participants and in order to provide sufficient time for preliminary submissions in CCIC 2021, the organising committee has decided to extend the deadline of the preliminary round to </span><strong><span>15th October 2021</span></strong><span> for </span><strong><span>generators</span></strong><span> and </span><strong><span>22nd October 2021</span></strong><span> for </span><strong><span>judges</span></strong><span>. </span></p><p><span>In addition, please notice that the submission requirements for </span><strong><span>judges</span></strong><span> have changed after the discussion and consideration of the CCIC Organising Committee:</span></p><ol start='' ><li><span>For </span><strong><span>judges</span></strong><span>, </span><u><strong><span>preliminary submission is not compulsory.</span></strong></u><span> The judge teams may participate in the final round without preliminary submission. Any valid submission record before the final submission deadline </span><strong><span>(6th Nov 2021)</span></strong><span> will be considered as completing the registration for this challenge. However, it is strongly recommended for the judge team to participate in the preliminary round, so as to accumulate experience and make possible adjustments for the final submission.</span></li><li><span>For </span><strong><span>generators</span></strong><span>, </span><strong><u><span>participants are still required to complete both the preliminary submission and final submission.</span></u></strong><span> </span></li></ol><p><span>For detailed information about CCIC 2021, please refer to </span><a href='https://csmt-ccic-2021.github.io/CCIC/index.html' target='_blank' class='url'>https://csmt-ccic-2021.github.io/CCIC/index.html</a><span>. In case of special circumstances in the challenge, please write to </span><a href='mailto:csmt.ccic.2021@gmail.com'><span>csmt.ccic.2021@gmail.com</span></a><span> for any enquires.</span></p><p>&nbsp;</p><h2 id='schedule'><span>Schedule</span></h2><p><span>The updated deadlines for subsequent steps will therefore be as follows:</span></p><figure><table><thead><tr><th><span>Time</span></th><th><span>Event</span></th><th><span>Description</span></th></tr></thead><tbody><tr><td><span>End of August 2021</span></td><td><span>Beginning of challenge</span></td><td><span>A list of violin composers will be released, where each violin composer has a specific music style.</span></td></tr><tr><td><span>15th Oct</span></td><td><span>Preliminary submission deadline for </span><strong><span>generators</span></strong></td><td><span>Participants who have chosen to build a </span><strong><span>generator</span></strong><span> should submit their output. Valid submission indicates registration to the challenge.</span></td></tr><tr><td><span>22nd Oct</span></td><td><span>Preliminary submission deadline for </span><strong><span>judges</span></strong><span> </span><u><span>(Not Compulsory)</span></u></td><td><span>Participants who have chosen the </span><strong><span>judge</span></strong><span> role should submit their output. Valid submission indicates registration to the challenge. Notice that this submission is </span><strong><span>not compulsory</span></strong><span>.</span></td></tr><tr><td><span>1st Nov</span></td><td><span>Release of the beginnings and endings</span></td><td><span>Beginnings and endings are released in pairs as a part of requirements of final submission.</span></td></tr><tr><td><span>3rd Nov</span></td><td><span>Final submission deadline for </span><strong><span>generators</span></strong></td><td><strong><span>Generator</span></strong><span> systems should complete these phrases in 48 hours and make the final submission.</span></td></tr><tr><td><span>4th Nov</span></td><td><span>Release of the generated phrases</span></td><td><span>Generated phrases will be compiled, shuffled and made available to </span><strong><span>judge</span></strong><span> systems.</span></td></tr><tr><td><span>6th Nov</span></td><td><span>Final submission deadline for </span><strong><span>judges</span></strong></td><td><strong><span>Judges</span></strong><span> systems should calculate the $HCS$s in 48 hours and make the final submission.</span></td></tr><tr><td><span>Mid-Nov</span></td><td><span>Result announcement</span></td><td><span>Results and prizes will be announced during the conference</span></td></tr></tbody></table></figure></div></div>
-</body>
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ccic-2021-call-for-participation">CCIC 2021 Call For Participation</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The Computer Composition Identification Challenge, initiated by the Conference on Sound and Music Technology (CSMT), is succeeding the CSMT Data Challenge, 2020. This new challenge is dedicated to finding improved music generation models and objective evaluation models for a number of specified music styles. </p>
+<p>There will be <strong>two</strong> roles competing against each other in this challenge: <strong>Generator</strong> versus <strong>Judge</strong>. Participants must choose one role and complete the corresponding tasks. </p>
+<p><strong>Generators</strong> are supposed to develop a system<sup><a href="#fn_1" id="reffn_1">1</a></sup> that can automatically generate a playable (solo) violin phrase with the <u>beginning and ending bars</u>, <u>tempo</u>, <u>key signature</u>, <u>time signature</u>, and <u>the required style (by composer)</u> as the input specified by the challenge. </p>
+<p><strong>Judges</strong> are required to analyze given <u>music phrases</u>, under the given <u>style context (by composer&apos;s name)</u>, and produce a <em>Human Composition Score</em> ($HCS$&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;) -- the probability of the input being composed by a human composer.</p>
+<blockquote id="fn_1">
+<sup>1</sup>. A system can consist of more than one objective model or rule sets.<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+</blockquote>
+<h2 id="prizing">Prizing</h2>
+<ol>
+<li><strong>The best generator</strong> -- for the participant whose <strong>generator</strong> system obtains the highest score. </li>
+<li><p><strong>The best judge</strong> -- for the participant whose <strong>judge</strong> system obtains the highest score. </p>
+</li>
+<li><p><strong>Creativity award</strong> -- for the participant with the most creative solution, determined by the committee.</p>
+</li>
+</ol>
+<h2 id="schedule">Schedule</h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>End of August 2021</td>
+<td>Beginning of challenge</td>
+<td>A list of violin composers will be released, where each violin composer has a specific music style.</td>
+</tr>
+<tr>
+<td>27th Sept</td>
+<td>Preliminary submission deadline for <strong>generators</strong></td>
+<td>Participants who have chosen to build a <strong>generator</strong> should submit their output. Valid submission indicates registration to the challenge.</td>
+</tr>
+<tr>
+<td>8th Oct</td>
+<td>Preliminary submission deadline for <strong>judges</strong></td>
+<td>Participants who have chosen the <strong>judge</strong> role should submit their output. Valid submission indicates registration to the challenge.</td>
+</tr>
+<tr>
+<td>1st Nov</td>
+<td>Release of the beginnings and endings</td>
+<td>Beginnings and endings are released in pairs as a part of requirements of final submission.</td>
+</tr>
+<tr>
+<td>3rd Nov</td>
+<td>Final submission deadline for <strong>generators</strong></td>
+<td><strong>Generator</strong> systems should complete these phrases in 48 hours and make the final submission.</td>
+</tr>
+<tr>
+<td>4th Nov</td>
+<td>Release of the generated phrases</td>
+<td>Generated phrases will be compiled, shuffled and made available to <strong>judge</strong> systems.</td>
+</tr>
+<tr>
+<td>6th Nov</td>
+<td>Final submission deadline for <strong>judges</strong></td>
+<td><strong>Judges</strong> systems should calculate the $HCS$s in 48 hours and make the final submission.</td>
+</tr>
+<tr>
+<td>Mid-Nov</td>
+<td>Result announcement</td>
+<td>Results and prizes will be announced during the conference</td>
+</tr>
+</tbody>
+</table>
+<h2 id="procedure">Procedure</h2>
+<p>When the challenge begins, <a href="../Violin%20Composer%20List/Violin%20Composer%20List%20of%20CCIC%202021.html">a list of violin composers</a> will be released, where each violin composer has a specific music style. </p>
+<h3 id="task-requirements">Task Requirements</h3>
+<p>For <strong>generator</strong> systems, 200 music phrases should be generated in the style of each composer in the list. The beginning and ending bars will not be specified until the final submission. This means the music phrases generated before the final submission can have arbitrary beginning and ends and should be able to generate with specified beginning and ending bars in the final stage.</p>
+<p>For <strong>judge</strong> systems, participants are required to compute the probability of a given music phrase as the input being generated by computer systems, with the given composer&#x2019;s name as the context. Throughout the development stage, only the composers&#x2019; own compositions (positive samples) are allowed to be used to train the <strong>judge</strong> system<sup><a href="#fn_2" id="reffn_2">2</a></sup>.</p>
+<blockquote id="fn_2">
+<sup>2</sup>. Notice that the determination of music generation system should not be considered as a classification problem between human composed phrases and computer-generated phrases.<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
+</blockquote>
+<p>The submission will be via <strong><a href="https://cmt3.research.microsoft.com/" target="_blank">Microsoft CMT</a></strong>. The entry is not opened until 20th, Sep 2021.</p>
+<h3 id="preliminary-submission">Preliminary Submission</h3>
+<p>The preliminary result contains two submission deadlines. The first deadline is for <strong>generators</strong> to submit 200 music phrases for each composer. The second deadline is set around one week later to <strong>judges</strong> for submitting the results ($HCS$&#x200B;&#x200B;&#x200B;&#x200B;), which are the feedback for the music phrases generated by <strong>generators</strong>. Notice that any valid submission record in this two preliminary submissions will be considered as completing the registration for this challenge but the submitted content will not affect the final score.</p>
+<h3 id="final-submission">Final Submission</h3>
+<p>The last few days before the final submission deadline will be the evaluation stage, when 200 pairs of beginnings and endings will be released for each composer&apos;s pieces in the list. </p>
+<p>In 48 hours, <strong>generator</strong> systems should complete these music phrases and submit them as their final submission. Then, these phrases will be compiled together and made available to <strong>judge</strong> systems. From this moment on, in the next 48 hours, <strong>judge</strong> systems are expected to calculate the $HCS$&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;&#x200B;s for these phrases and make the final submission. For each composer, a certain number of extra phrases extracted from human-composed pieces will be mixed into the input. <sup><a href="#fn_3" id="reffn_3">3</a></sup></p>
+<blockquote id="fn_3">
+<sup>3</sup>. The numbers may vary and the details will be specified when the challenge starts.<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#x21A9;</a>
+</blockquote>
+<p>The final submission requires participants submit their program output (phrases for <strong>generators</strong> and $HCS$s for <strong>judges</strong>), source code<sup><a href="#fn_4" id="reffn_4">4</a></sup> and a technical report.</p>
+<blockquote id="fn_4">
+<sup>4</sup>.  If necessary, the zip file can have a password. The organization committee may ask a password disclosure for reimplementation of the submitted system under certain circumstances.<a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#x21A9;</a>
+</blockquote>
+<h2 id="scoring">Scoring</h2>
+<p><strong>Generator</strong> scores are calculated by the average $HCS$&#x200B;&#x200B;&#x200B;&#x200B; from all <strong>judges</strong>.</p>
+<p><strong>Judge</strong> scores are calculated by the sum of the following two scores:</p>
+<ol>
+<li><p>$HCS$ for human composed phrases </p>
+</li>
+<li><p>$1-HCS$&#x200B; for phrases generated by <strong>generators</strong>.</p>
+</li>
+</ol>
+<h2 id="qa">Q&amp;A</h2>
+<p>For any enquires, email csmt.ccic.2021@gmail.com</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Violin Composer List/Violin Composer List of CCIC 2021.html" class="navigation navigation-next " aria-label="Next page: Violin Composer List">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Call for Participation","level":"1.2","depth":1,"next":{"title":"Violin Composer List","level":"1.3","depth":1,"path":"Violin Composer List/Violin Composer List of CCIC 2021.md","ref":"Violin Composer List/Violin Composer List of CCIC 2021.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Call for Participation/CSMT_CCIC_2021_CFP.md","mtime":"2021-09-03T04:21:53.850Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-03T05:42:31.839Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
 </html>
+
